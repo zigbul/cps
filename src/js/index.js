@@ -1,3 +1,7 @@
 import '../scss/style.scss';
-
-console.log('Works!');
+import './burgerMenu.js';
+import './callPopup.js';
+import './feedBackPopup.js';
+import './repairBlockButton.js';
+import './sectionButton.js';
+import './swiper.js';

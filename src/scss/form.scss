@@ -1,0 +1,54 @@
+.form {
+   display: flex;
+   flex-direction: column;
+   
+   &__input {
+      border: 1px solid #eaeaea;
+      border-radius: 8px;
+      width: 288px;
+      height: 48px;
+      margin-bottom: 16px;
+      padding: 0 16px;
+      &::placeholder {
+         color: #b5b6bc;
+      }
+      &:focus {
+         border-color: red;
+      }
+   }
+
+   &__textarea {
+      resize: none;
+      height: 118px;
+      padding: 16px;
+      border: 1px solid #eaeaea;
+      border-radius: 8px;
+      width: 288px;
+      margin-bottom: 16px;
+      &::placeholder {
+         color: #b5b6bc;
+      }
+      &:focus {
+         border-color: red;
+      }
+   }
+
+   &__text {
+      font-size: 14px;
+      line-height: 16px;
+      color: #7e7e82;
+      margin-bottom: 23px;
+   }
+
+   &__link {
+      color: #ff3e79;
+   }
+
+   &__btn {
+      justify-content: space-between;
+      width: 136px;
+      align-self: flex-end;
+      padding: 10px;
+   }
+}
+

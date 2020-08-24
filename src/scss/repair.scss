@@ -1,0 +1,109 @@
+.repair {
+   &__list {
+   }
+   &__item {
+   }
+
+   &__link {
+      color: #1b1c21;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      width: 206px;
+      height: 126px;
+      padding: 16px;
+      border: 1px solid #eaeaea;
+      border-radius: 6px;
+      background: #ffffff;
+      &::after {
+         display: inherit;
+         align-self: flex-end;
+         content: "";
+         width: 40px;
+         height: 40px;
+         background: url("../img/arrow.svg") no-repeat center center;
+         border: 2px solid #ff3e79;
+         border-radius: 50%;
+      }
+   }
+   &__logo-wrapper {
+      margin-top: 5px;
+   }
+
+   &__btn {
+      cursor: pointer;
+      display: none;
+   }
+}
+
+.swiper-container-1 {
+   overflow: hidden;
+}
+
+.swiper-slide {
+   width: auto;
+}
+
+.swiper-pagination {
+   position: static;
+   margin-top: 16px;
+}
+.btn--show {
+   color: #1b1c21;
+   padding-left: 31px;
+   background: url("../img/arrows-icon.svg") no-repeat 7px;
+}
+
+.btn--hide {
+   color: #1b1c21;
+   padding-left: 31px;
+   background: url("../img/arrows-up.svg") no-repeat 7px;
+}
+
+@media (min-width: 768px) {
+   .repair {
+         padding-right: 0;
+
+      &__item {
+         margin-bottom: 16px;
+         &:not(:last-child) {
+            margin-right: 16px;
+         }
+      }
+      &__list {
+         display: flex;
+         flex-wrap: wrap;
+      }
+      &__list--show {
+         max-height: 175px;
+      }
+
+      &__list--hide {
+         height: auto;
+      }
+
+      &__link {
+         width: 184px;
+      }
+      &__btn {
+         display: inherit;
+      }
+   }
+
+   .swiper-pagination {
+      display: none;
+   }
+}
+
+@media (min-width: 1440px) {
+   .repair {
+      &__item {
+         &:not(:nth-child(4)) {
+            margin-right: 16px;
+         }
+      }
+      &__link {
+         width: 214px;
+      }
+   }
+}

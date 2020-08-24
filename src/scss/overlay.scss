@@ -1,0 +1,23 @@
+.overlay {
+   position: fixed;
+   top: 0;
+   opacity: 0;
+   visibility: hidden;
+   width: 100%;
+   height: 100%;
+   background: white;
+}
+
+.overlay--burger-active {
+   opacity: 0.96;
+   visibility: visible;
+   transition-duration: 0.3s;
+   z-index: 10;
+}
+
+.overlay--modal-active {
+   opacity: 0.96;
+   visibility: visible;
+   transition-duration: 0.3s;
+   z-index: 100;
+}

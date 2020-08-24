@@ -1,0 +1,60 @@
+.modal {
+   position: absolute;
+   z-index: 101;
+   right: 0;
+   transform: translate(400px);
+   display: flex;
+   flex-direction: column;
+   background: #fff;
+   width: 320px;
+   height: 100%;
+   padding: 24px 16px 16px 16px;
+
+   &__btn {
+      margin-bottom: 40px;
+   }
+
+   &__header {
+      margin-bottom: 24px;
+      &::before {
+         margin-left: -20px;
+         margin-right: 12px;
+      }
+   }
+}
+
+.modal--active {
+   transform: translate(0);
+   transition: linear transform 0.3s;
+}
+
+.cross-btn {
+   flex: 0 0 auto;
+   cursor: pointer;
+   width: 40px;
+   height: 40px;
+   background: url("../img/cross-icon.svg") no-repeat center;
+   background-color: #ff3e79;
+   border-radius: 20px;
+   transition-duration: 1.2s;
+   &:hover {
+      transform: scale(1.2);
+      filter: hue-rotate(180deg);
+   }
+}
+
+@media (min-width: 768px) {
+   .modal {
+      box-shadow: -20px 0px 15px rgba(14, 24, 80, 0.1), -2px 0px 4px rgba(69, 79, 126, 0.1);
+   }
+}
+
+@media (min-width: 1440px) {
+   .modal {
+      &__btn {
+         margin-bottom: 40px;
+         position: absolute;
+         right: 350px;
+      }
+   }
+}

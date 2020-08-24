@@ -1,0 +1,263 @@
+.prices {
+   &__list {
+   }
+   &__item {
+   }
+   .subtitles {
+      display: none;
+   }
+
+   &__services {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      box-sizing: border-box;
+   }
+   &__logo-wrapper {
+      margin-top: 5px;
+   }
+
+   &__btn {
+      cursor: pointer;
+      display: none;
+   }
+
+   &__description {
+      width: 80%;
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.2px;
+      color: #1b1c21;
+      margin-bottom: 16px;
+   }
+
+   &__offer-link {
+      color: #1b1c21;
+      font-weight: 700;
+      display: inline-flex;
+      width: 192px;
+      background: url("../img/red-arrow.svg") no-repeat 115px 28px;
+   }
+}
+
+.prices {
+   &__services {
+   }
+}
+.services {
+   background: #fff;
+   border-radius: 6px;
+   width: 260px;
+   height: 200px;
+   padding: 16px;
+   h3 {
+      color: #7e7e82;
+      font-size: 14px;
+      line-height: 16px;
+   }
+
+   p {
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.2px;
+      color: #1b1c21;
+      margin-bottom: auto;
+      &:last-of-type {
+         margin-bottom: 0;
+      }
+   }
+
+   &__title {
+   }
+
+   &__name {
+   }
+
+   &__price-title {
+   }
+
+   &__price {
+   }
+
+   &__time-title {
+   }
+
+   &__time {
+   }
+
+   &__btn {
+      position: absolute;
+      bottom: 16px;
+      left: 125px;
+      padding: 0px 8px 0px 12px;
+      width: 119px;
+      &::after {
+         margin-left: auto;
+      }
+   }
+}
+
+.swiper-container-2 {
+   overflow: hidden;
+   margin-left: -16px;
+}
+
+.swiper-slide {
+   width: auto;
+}
+
+.swiper-pagination {
+   position: static;
+   margin-top: 16px;
+}
+.btn--show {
+   color: #1b1c21;
+   padding-left: 31px;
+   background: url("../img/arrows-icon.svg") no-repeat 7px;
+}
+
+.btn--hide {
+   color: #1b1c21;
+   padding-left: 31px;
+   background: url("../img/arrows-up.svg") no-repeat 7px;
+}
+
+@media (min-width: 768px) {
+   .prices {
+      padding-top: 60px;
+      padding-left: 0px;
+      padding-right: 0px;
+
+      &__body {
+         overflow: visible;
+      }
+
+      &__list {
+         display: flex;
+         flex-direction: column;
+         background: #fff;
+         border-radius: 6px;
+         padding: 0 16px;
+         box-sizing: inherit;
+      }
+      &__item {
+         &:not(:last-child) {
+            .services {
+               border-bottom: 1px solid #eaeaea;
+            }
+         }
+
+         .services {
+            p {
+               margin-bottom: 0;
+            }
+            &__title,
+            &__price-title,
+            &__time-title {
+               display: none;
+            }
+         }
+      }
+
+      &__description {
+         width: 60%;
+      }
+
+      &__offer-link {
+         width: auto;
+         background-position: right center;
+         padding-right: 20px;
+         padding-bottom: 2px;
+      }
+   }
+
+   .prices .subtitles {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 16px;
+      margin-bottom: 16px;
+      color: #7e7e82;
+      line-height: 16px;
+      mix-blend-mode: normal;
+      opacity: 0.72;
+      &::after {
+         content: "";
+         display: inherit;
+         width: 119px;
+      }
+
+      &__services {
+         width: 350px;
+         font-size: 14px;
+      }
+
+      &__price {
+         width: 75px;
+         font-size: 14px;
+      }
+
+      &__time {
+         width: 85px;
+         font-size: 14px;
+      }
+   }
+
+   .services {
+      flex-direction: row;
+      align-items: center;
+      background: transparent;
+      border-radius: none;
+      width: auto;
+      height: auto;
+      padding: 16px 0;
+      justify-content: space-between;
+      &__title {
+         position: absolute;
+         top: -30px;
+      }
+
+      &__name {
+         width: 350px;
+      }
+
+      &__price-title {
+      }
+
+      &__price {
+         width: 75px;
+      }
+
+      &__time-title {
+      }
+
+      &__time {
+         width: 85px;
+      }
+
+      &__btn {
+         position: static;
+      }
+   }
+   .swiper-container-2 {
+      margin-left: 0px;
+   }
+   .swiper-pagination {
+      display: none;
+   }
+}
+
+@media (min-width: 1440px) {
+   .prices {
+      &__item {
+      }
+      &__link {
+         width: 214px;
+      }
+
+      &__description {
+         width: 40%;
+      }
+   }
+}

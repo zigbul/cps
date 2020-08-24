@@ -1,0 +1,20 @@
+.submit-btn {
+   color: #fff;
+   text-transform: uppercase;
+   font-weight: 900;
+   align-items: center;
+   display: flex;
+   font-size: 12px;
+   line-height: 24px;
+   height: 32px;
+   background-color: #ff3e79;
+   border-radius: 16px;
+   &::after {
+      content: "";
+      display: inherit;
+      width: 24px;
+      height: 24px;
+      border-radius: 20px;
+      background: url("../img/white-arrow.svg") no-repeat center;
+   }
+}
