@@ -9,20 +9,29 @@ const feedBackFocused = function () {
    feedBackInput.focus();
 }
 
-const feedBackPopupOpenHandler = function () {
+const openFeedBackPopup = function () {
    feedBack.classList.add('modal--active');
    feedBackOverlay.classList.add('overlay--modal-active');
-   document.addEventListener('keydown', escapeKeyDownFeedBackHandler, { once: true });
-   feedBackOverlay.addEventListener('click', overlayClickFeedBackHandler, { once: true });
-   feedBackCloseButton.addEventListener('click', feedBackCloseButtonHandler, { once: true });
+   document.addEventListener('keydown', escapeKeyDownFeedBackHandler);
+   feedBackOverlay.addEventListener('click', overlayClickFeedBackHandler);
+   feedBackCloseButton.addEventListener('click', feedBackCloseButtonHandler);
    setTimeout(feedBackFocused, 500);
+   feedBackOpenBtn.removeEventListener('click', feedBackPopupOpenHandler);
+   feedBackOpenButton.removeEventListener('click', feedBackPopupOpenHandler);
+}
+
+const feedBackPopupOpenHandler = function () {
+   openFeedBackPopup();
 }
 
 const closeFeedBackPopup = function () {
    feedBack.classList.remove('modal--active');
    feedBackOverlay.classList.remove('overlay--modal-active');
-   feedBackOpenBtn.addEventListener('click', feedBackPopupOpenHandler, { once: true });
-   feedBackOpenButton.addEventListener('click', feedBackPopupOpenHandler, { once: true });
+   feedBackOpenBtn.addEventListener('click', feedBackPopupOpenHandler);
+   feedBackOpenButton.addEventListener('click', feedBackPopupOpenHandler);
+   document.removeEventListener('keydown', escapeKeyDownFeedBackHandler);
+   feedBackOverlay.removeEventListener('click', overlayClickFeedBackHandler);
+   feedBackCloseButton.removeEventListener('click', feedBackCloseButtonHandler);
 }
 
 const escapeKeyDownFeedBackHandler = function (e) {
@@ -41,5 +50,5 @@ const feedBackCloseButtonHandler = function () {
    closeFeedBackPopup();
 }
 
-feedBackOpenBtn.addEventListener('click', feedBackPopupOpenHandler, { once: true });
-feedBackOpenButton.addEventListener('click', feedBackPopupOpenHandler, { once: true });
+feedBackOpenBtn.addEventListener('click', feedBackPopupOpenHandler);
+feedBackOpenButton.addEventListener('click', feedBackPopupOpenHandler);

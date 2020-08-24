@@ -1,39 +1,45 @@
-const burgerMenuOpenButton = document.querySelector('.nav__burger-btn');
-const burgerMenuCloseButton = document.querySelector('.burger-menu-nav__cross-btn');
-const burgerMenuPopup = document.querySelector('.burger-menu__popup');
-const burgerOverlay = document.querySelector('.overlay--burger');
+const openButton = document.querySelector('.nav__burger-btn');
+const closeButton = document.querySelector('.burger-menu-nav__cross-btn');
+const popup = document.querySelector('.burger-menu__popup');
+const overlay = document.querySelector('.overlay--burger');
 const ESC_KEYCODE = 27;
 
-const burgerMenuOpenHandler = function () {
-   burgerMenuPopup.classList.add('burger-menu__popup--active');
-   burgerOverlay.classList.add('overlay--burger-active');
-   document.addEventListener('keydown', escapeKeyDownHandler, { once: true });
-   burgerOverlay.addEventListener('click', overlayClickHandler, { once: true });
-   burgerMenuCloseButton.addEventListener('click', burgerMenuCloseButtonHandler, { once: true });
+const openMenu = function () {
+   popup.classList.add('burger-menu__popup--active');
+   overlay.classList.add('overlay--burger-active');
+   document.addEventListener('keydown', escapeKeyDownHandler);
+   overlay.addEventListener('click', overlayClickHandler);
+   closeButton.addEventListener('click', closeButtonHandler);
+   openButton.removeEventListener('click', openHandler);
+}
+
+const openHandler = function () {
+   openMenu();
 }
 
 const closeMenu = function () {
-   burgerMenuPopup.classList.remove('burger-menu__popup--active');
-   burgerOverlay.classList.remove('overlay--burger-active');
-   burgerMenuOpenButton.addEventListener('click', burgerMenuOpenHandler, { once: true });
+   popup.classList.remove('burger-menu__popup--active');
+   overlay.classList.remove('overlay--burger-active');
+   openButton.addEventListener('click', openHandler);
+   document.removeEventListener('keydown', escapeKeyDownHandler);
+   overlay.removeEventListener('click', overlayClickHandler);
+   closeButton.removeEventListener('click', closeButtonHandler);
 }
 
 const escapeKeyDownHandler = function (e) {
-   const modalOverlayActive = document.querySelector('.overlay--modal-active');
-   if (e.keyCode == ESC_KEYCODE && window.innerWidth < 1440 && !modalOverlayActive) {
+   if (e.keyCode == ESC_KEYCODE) {
       closeMenu();
    }
 }
 
 const overlayClickHandler = function (e) {
-   const modalOverlayActive = document.querySelector('.overlay--modal-active');
-   if (e.target = burgerOverlay && !modalOverlayActive) {
+   if (e.target = overlay) {
       closeMenu();
    }
 }
 
-const burgerMenuCloseButtonHandler = function () {
+const closeButtonHandler = function () {
    closeMenu();
 }
 
-burgerMenuOpenButton.addEventListener('click', burgerMenuOpenHandler, { once: true });
+openButton.addEventListener('click', openHandler);
