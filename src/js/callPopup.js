@@ -1,5 +1,5 @@
-const callOpenBtn = document.querySelector('#phone-btn');
-const callOpenButton = document.querySelector('#cell-btn');
+const callOpenButtonMenu = document.querySelector('#phone-btn');
+const callOpenButtonHeader = document.querySelector('#cell-btn');
 const callWrapper = document.querySelector('.modal--call');
 const callCloseButton = callWrapper.querySelector('.modal__btn');
 const callInput = callWrapper.querySelector('input');
@@ -16,8 +16,8 @@ const openCallPopup = function () {
    callOverlay.addEventListener('click', overlayClickCallHandler);
    callCloseButton.addEventListener('click', callCloseButtonHandler);
    setTimeout(callFocused, 500);
-   callOpenBtn.removeEventListener('click', callPopupOpenHandler);
-   callOpenButton.removeEventListener('click', callPopupOpenHandler);
+   callOpenButtonMenu.removeEventListener('click', callPopupOpenHandler);
+   callOpenButtonHeader.removeEventListener('click', callPopupOpenHandler);
 }
 
 const callPopupOpenHandler = function () {
@@ -27,8 +27,8 @@ const callPopupOpenHandler = function () {
 const closeCallPopup = function () {
    callWrapper.classList.remove('modal--active');
    callOverlay.classList.remove('overlay--modal-active');
-   callOpenBtn.addEventListener('click', callPopupOpenHandler);
-   callOpenButton.addEventListener('click', callPopupOpenHandler);
+   callOpenButtonMenu.addEventListener('click', callPopupOpenHandler);
+   callOpenButtonHeader.addEventListener('click', callPopupOpenHandler);
    document.removeEventListener('keydown', escapeKeyDownCallHandler);
    callOverlay.removeEventListener('click', overlayClickCallHandler);
    callCloseButton.removeEventListener('click', callCloseButtonHandler);
@@ -50,5 +50,5 @@ const callCloseButtonHandler = function () {
    closeCallPopup();
 }
 
-callOpenBtn.addEventListener('click', callPopupOpenHandler);
-callOpenButton.addEventListener('click', callPopupOpenHandler);
+callOpenButtonMenu.addEventListener('click', callPopupOpenHandler);
+callOpenButtonHeader.addEventListener('click', callPopupOpenHandler);

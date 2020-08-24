@@ -1,5 +1,5 @@
-const feedBackOpenBtn = document.querySelector('#message-btn');
-const feedBackOpenButton = document.querySelector('#msg-btn');
+const feedBackOpenButtonMenu = document.querySelector('#message-btn');
+const feedBackOpenButtonHeader = document.querySelector('#msg-btn');
 const feedBack = document.querySelector('.modal--feedback');
 const feedBackCloseButton = feedBack.querySelector('.modal__btn');
 const feedBackInput = feedBack.querySelector('input');
@@ -16,8 +16,8 @@ const openFeedBackPopup = function () {
    feedBackOverlay.addEventListener('click', overlayClickFeedBackHandler);
    feedBackCloseButton.addEventListener('click', feedBackCloseButtonHandler);
    setTimeout(feedBackFocused, 500);
-   feedBackOpenBtn.removeEventListener('click', feedBackPopupOpenHandler);
-   feedBackOpenButton.removeEventListener('click', feedBackPopupOpenHandler);
+   feedBackOpenButtonMenu.removeEventListener('click', feedBackPopupOpenHandler);
+   feedBackOpenButtonHeader.removeEventListener('click', feedBackPopupOpenHandler);
 }
 
 const feedBackPopupOpenHandler = function () {
@@ -27,8 +27,8 @@ const feedBackPopupOpenHandler = function () {
 const closeFeedBackPopup = function () {
    feedBack.classList.remove('modal--active');
    feedBackOverlay.classList.remove('overlay--modal-active');
-   feedBackOpenBtn.addEventListener('click', feedBackPopupOpenHandler);
-   feedBackOpenButton.addEventListener('click', feedBackPopupOpenHandler);
+   feedBackOpenButtonMenu.addEventListener('click', feedBackPopupOpenHandler);
+   feedBackOpenButtonHeader.addEventListener('click', feedBackPopupOpenHandler);
    document.removeEventListener('keydown', escapeKeyDownFeedBackHandler);
    feedBackOverlay.removeEventListener('click', overlayClickFeedBackHandler);
    feedBackCloseButton.removeEventListener('click', feedBackCloseButtonHandler);
@@ -50,5 +50,5 @@ const feedBackCloseButtonHandler = function () {
    closeFeedBackPopup();
 }
 
-feedBackOpenBtn.addEventListener('click', feedBackPopupOpenHandler);
-feedBackOpenButton.addEventListener('click', feedBackPopupOpenHandler);
+feedBackOpenButtonMenu.addEventListener('click', feedBackPopupOpenHandler);
+feedBackOpenButtonHeader.addEventListener('click', feedBackPopupOpenHandler);
