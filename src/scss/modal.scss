@@ -1,8 +1,8 @@
 .modal {
    position: absolute;
    z-index: 101;
-   right: 0;
-   transform: translate(400px);
+   right: -400px;
+   // transform: translate(400px);
    display: flex;
    flex-direction: column;
    background: #fff;
@@ -24,7 +24,7 @@
 }
 
 .modal--active {
-   transform: translate(0);
+   transform: translate(-400px);
    transition: linear transform 0.3s;
 }
 
