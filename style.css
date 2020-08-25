@@ -269,8 +269,7 @@ html {
   position: absolute;
   z-index: 11;
   top: 0;
-  left: 0;
-  transform: translate(-200%);
+  left: -400px;
   background: #fff;
   font-weight: bold;
   line-height: 24px;
@@ -283,7 +282,7 @@ html {
   min-height: 100%; }
 
 .burger-menu__popup--active {
-  transform: translate(0);
+  transform: translate(400px);
   transition: linear transform 0.3s; }
 
 .burger-menu-header .burger-menu-nav {
@@ -708,8 +707,8 @@ html {
       margin-right: 12px; }
 
 .modal--active {
-  transform: translate(-400px);
-  transition: linear transform 0.3s; }
+  right: 0;
+  transition: linear 0.3s; }
 
 .cross-btn {
   flex: 0 0 auto;
