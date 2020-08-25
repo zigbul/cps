@@ -16,7 +16,7 @@ const openCallPopup = function () {
    document.addEventListener('keydown', escapeKeyDownCallHandler);
    callOverlay.addEventListener('click', overlayClickCallHandler);
    callCloseButton.addEventListener('click', callCloseButtonHandler);
-   // setTimeout(callFocused, 500);
+   setTimeout(callFocused, 500);
    callOpenButtonMenu.removeEventListener('click', callPopupOpenHandler);
    callOpenButtonHeader.removeEventListener('click', callPopupOpenHandler);
 }
