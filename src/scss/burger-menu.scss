@@ -17,8 +17,8 @@
 }
 
 .burger-menu__popup--active {
-   transform: translate(400px);
-   transition: linear transform 0.3s;
+   left: 0;
+   transition: linear 0.3s;
 }
 
 .burger-menu-header {

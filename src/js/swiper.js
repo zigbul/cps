@@ -6,7 +6,7 @@ let mySwiper;
 let mySwiper1;
 let mySwiper2;
 
-function mobileSlider() {
+const mobileSlider = function () {
   if (window.innerWidth <= 767 && slider.dataset.mobile == 'false') {
     mySwiper = new Swiper(slider, {
       // Optional parameters
@@ -38,7 +38,7 @@ window.addEventListener('resize', () => {
   mobileSlider();
 });
 
-function mobileSlider1() {
+const mobileSlider1 = function () {
   if (window.innerWidth <= 767 && slider1.dataset.mobile == 'false') {
     mySwiper1 = new Swiper(slider1, {
       // Optional parameters
@@ -70,7 +70,7 @@ window.addEventListener('resize', () => {
   mobileSlider1();
 });
 
-function mobileSlider2() {
+const mobileSlider2 = function () {
   if (window.innerWidth <= 767 && slider2.dataset.mobile == 'false') {
     mySwiper2 = new Swiper(slider2, {
       // Optional parameters
