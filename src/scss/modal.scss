@@ -24,8 +24,9 @@
 }
 
 .modal--active {
-   transform: translate(-400px);
-   transition: linear transform 0.3s;
+   // transform: translate(-400px);
+   right: 0;
+   transition: linear 0.3s;
 }
 
 .cross-btn {

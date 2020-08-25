@@ -2,8 +2,8 @@
    position: absolute;
    z-index: 11;
    top: 0;
-   left: 0;
-   transform: translate(-200%);
+   left: -400px;
+   // transform: translate(-200%);
    background: #fff;
    font-weight: bold;
    line-height: 24px;
@@ -17,7 +17,7 @@
 }
 
 .burger-menu__popup--active {
-   transform: translate(0);
+   transform: translate(400px);
    transition: linear transform 0.3s;
 }
 
