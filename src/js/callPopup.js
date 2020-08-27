@@ -6,17 +6,13 @@ const callInput = callWrapper.querySelector('input');
 const callOverlay = document.querySelector('.overlay--modal');
 const ESC_KEYCODE = 27;
 
-const callFocused = function () {
-   callInput.focus();
-}
-
 const openCallPopup = function () {
    callWrapper.classList.add('modal--active');
    callOverlay.classList.add('overlay--modal-active');
    document.addEventListener('keydown', escapeKeyDownCallHandler);
    callOverlay.addEventListener('click', overlayClickCallHandler);
    callCloseButton.addEventListener('click', callCloseButtonHandler);
-   setTimeout(callFocused, 500);
+   callInput.focus();
    callOpenButtonMenu.removeEventListener('click', callPopupOpenHandler);
    callOpenButtonHeader.removeEventListener('click', callPopupOpenHandler);
 }

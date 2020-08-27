@@ -6,17 +6,13 @@ const feedBackInput = feedBack.querySelector('input');
 const feedBackOverlay = document.querySelector('.overlay--modal');
 const ESC_KEYCODE = 27;
 
-const feedBackFocused = function () {
-   feedBackInput.focus();
-}
-
 const openFeedBackPopup = function () {
    feedBack.classList.add('modal--active');
    feedBackOverlay.classList.add('overlay--modal-active');
    document.addEventListener('keydown', escapeKeyDownFeedBackHandler);
    feedBackOverlay.addEventListener('click', overlayClickFeedBackHandler);
    feedBackCloseButton.addEventListener('click', feedBackCloseButtonHandler);
-   setTimeout(feedBackFocused, 500);
+   feedBackInput.focus();
    feedBackOpenButtonMenu.removeEventListener('click', feedBackPopupOpenHandler);
    feedBackOpenButtonHeader.removeEventListener('click', feedBackPopupOpenHandler);
 }
