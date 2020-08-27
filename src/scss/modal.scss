@@ -1,14 +1,13 @@
 .modal {
-   position: absolute;
+   position: fixed;
    z-index: 101;
    right: -400px;
-   // transform: translate(400px);
-   display: none;
    flex-direction: column;
    background: #fff;
-   width: 320px;
+   max-width: 330px;
    height: 100%;
    padding: 24px 16px 16px 16px;
+   overflow-y: scroll;
 
    &__btn {
       margin-bottom: 40px;
@@ -24,10 +23,8 @@
 }
 
 .modal--active {
-   // transform: translate(-400px);
-   display: flex;
    right: 0;
-   // transition: linear 1s;
+   transition: linear 0.3s;
 }
 
 .cross-btn {

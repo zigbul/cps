@@ -5,6 +5,7 @@ const feedBackCloseButton = feedBack.querySelector('.modal__btn');
 const feedBackInput = feedBack.querySelector('input');
 const feedBackOverlay = document.querySelector('.overlay--modal');
 const ESC_KEYCODE = 27;
+const body = document.querySelector('body');
 
 const openFeedBackPopup = function () {
    feedBack.classList.add('modal--active');
@@ -15,6 +16,7 @@ const openFeedBackPopup = function () {
    feedBackInput.focus();
    feedBackOpenButtonMenu.removeEventListener('click', feedBackPopupOpenHandler);
    feedBackOpenButtonHeader.removeEventListener('click', feedBackPopupOpenHandler);
+   body.style.overflowY = 'hidden';
 }
 
 const feedBackPopupOpenHandler = function () {
@@ -29,6 +31,7 @@ const closeFeedBackPopup = function () {
    document.removeEventListener('keydown', escapeKeyDownFeedBackHandler);
    feedBackOverlay.removeEventListener('click', overlayClickFeedBackHandler);
    feedBackCloseButton.removeEventListener('click', feedBackCloseButtonHandler);
+   body.style.overflowY = 'auto';
 }
 
 const escapeKeyDownFeedBackHandler = function (e) {
@@ -38,7 +41,7 @@ const escapeKeyDownFeedBackHandler = function (e) {
 }
 
 const overlayClickFeedBackHandler = function (e) {
-   if (e.target = feedBackOverlay) {
+   if (e.target == feedBackOverlay) {
       closeFeedBackPopup();
    }
 }

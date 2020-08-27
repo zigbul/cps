@@ -17,7 +17,7 @@ const openHandler = function () {
    openMenu();
 }
 
-const closeMenu = function () {
+export const closeMenu = function () {
    popup.classList.remove('burger-menu__popup--active');
    overlay.classList.remove('overlay--burger-active');
    openButton.addEventListener('click', openHandler);
@@ -26,14 +26,15 @@ const closeMenu = function () {
    closeButton.removeEventListener('click', closeButtonHandler);
 }
 
-const escapeKeyDownHandler = function (e) {
-   if (e.keyCode == ESC_KEYCODE) {
+export const escapeKeyDownHandler = function (e) {
+   const modal = document.querySelector('.overlay--modal'); /* находит модалку*/
+   if (e.keyCode == ESC_KEYCODE && !modal.classList.contains('overlay--modal-active')) { /*закроет только если закрыта модалка*/
       closeMenu();
    }
 }
 
 const overlayClickHandler = function (e) {
-   if (e.target = overlay) {
+   if (e.target == overlay) {
       closeMenu();
    }
 }

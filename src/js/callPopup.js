@@ -5,6 +5,7 @@ const callCloseButton = callWrapper.querySelector('.modal__btn');
 const callInput = callWrapper.querySelector('input');
 const callOverlay = document.querySelector('.overlay--modal');
 const ESC_KEYCODE = 27;
+const body = document.querySelector('body');
 
 const openCallPopup = function () {
    callWrapper.classList.add('modal--active');
@@ -15,6 +16,7 @@ const openCallPopup = function () {
    callInput.focus();
    callOpenButtonMenu.removeEventListener('click', callPopupOpenHandler);
    callOpenButtonHeader.removeEventListener('click', callPopupOpenHandler);
+   body.style.overflowY = 'hidden';
 }
 
 const callPopupOpenHandler = function () {
@@ -29,6 +31,7 @@ const closeCallPopup = function () {
    document.removeEventListener('keydown', escapeKeyDownCallHandler);
    callOverlay.removeEventListener('click', overlayClickCallHandler);
    callCloseButton.removeEventListener('click', callCloseButtonHandler);
+   body.style.overflowY = 'auto';
 }
 
 const escapeKeyDownCallHandler = function (e) {
@@ -38,7 +41,7 @@ const escapeKeyDownCallHandler = function (e) {
 }
 
 const overlayClickCallHandler = function (e) {
-   if (e.target = callOverlay) {
+   if (e.target == callOverlay) {
       closeCallPopup();
    }
 }
