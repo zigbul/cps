@@ -692,7 +692,7 @@ html {
   position: absolute;
   z-index: 101;
   right: -400px;
-  display: flex;
+  display: none;
   flex-direction: column;
   background: #fff;
   width: 320px;
@@ -707,8 +707,8 @@ html {
       margin-right: 12px; }
 
 .modal--active {
-  right: 0;
-  transition: linear 0.3s; }
+  display: flex;
+  right: 0; }
 
 .cross-btn {
   flex: 0 0 auto;
