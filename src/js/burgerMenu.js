@@ -10,25 +10,25 @@ const openMenu = function () {
    document.addEventListener('keydown', escapeKeyDownHandler);
    overlay.addEventListener('click', overlayClickHandler);
    closeButton.addEventListener('click', closeButtonHandler);
-   openButton.removeEventListener('click', openHandler);
+   openButton.removeEventListener('click', openButtonClickHandler);
 }
 
-const openHandler = function () {
+const openButtonClickHandler = function () {
    openMenu();
 }
 
 export const closeMenu = function () {
    popup.classList.remove('burger-menu__popup--active');
    overlay.classList.remove('overlay--burger-active');
-   openButton.addEventListener('click', openHandler);
+   openButton.addEventListener('click', openButtonClickHandler);
    document.removeEventListener('keydown', escapeKeyDownHandler);
    overlay.removeEventListener('click', overlayClickHandler);
    closeButton.removeEventListener('click', closeButtonHandler);
 }
 
 export const escapeKeyDownHandler = function (e) {
-   const modal = document.querySelector('.overlay--modal'); /* находит модалку*/
-   if (e.keyCode == ESC_KEYCODE && !modal.classList.contains('overlay--modal-active')) { /*закроет только если закрыта модалка*/
+   const modal = document.querySelector('.overlay--modal');
+   if (e.keyCode == ESC_KEYCODE && !modal.classList.contains('overlay--modal-active')) {
       closeMenu();
    }
 }
@@ -43,4 +43,4 @@ const closeButtonHandler = function () {
    closeMenu();
 }
 
-openButton.addEventListener('click', openHandler);
+openButton.addEventListener('click', openButtonClickHandler);

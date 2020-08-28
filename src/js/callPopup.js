@@ -1,54 +1,56 @@
-const callOpenButtonMenu = document.querySelector('#phone-btn');
-const callOpenButtonHeader = document.querySelector('#cell-btn');
-const callWrapper = document.querySelector('.modal--call');
-const callCloseButton = callWrapper.querySelector('.modal__btn');
-const callInput = callWrapper.querySelector('input');
-const callOverlay = document.querySelector('.overlay--modal');
+const openButtons = document.querySelectorAll('.phone-btn');
+const modal = document.querySelector('.modal--call');
+const closeButton = modal.querySelector('.modal__btn');
+const input = modal.querySelector('input');
+const overlay = document.querySelector('.overlay--modal');
 const ESC_KEYCODE = 27;
 const body = document.querySelector('body');
 
-const openCallPopup = function () {
-   callWrapper.classList.add('modal--active');
-   callOverlay.classList.add('overlay--modal-active');
-   document.addEventListener('keydown', escapeKeyDownCallHandler);
-   callOverlay.addEventListener('click', overlayClickCallHandler);
-   callCloseButton.addEventListener('click', callCloseButtonHandler);
-   callInput.focus();
-   callOpenButtonMenu.removeEventListener('click', callPopupOpenHandler);
-   callOpenButtonHeader.removeEventListener('click', callPopupOpenHandler);
+const openModal = function () {
+   modal.classList.add('modal--active');
+   overlay.classList.add('overlay--modal-active');
+   document.addEventListener('keydown', escapeKeyDownHandler);
+   overlay.addEventListener('click', overlayClickHandler);
+   closeButton.addEventListener('click', closeButtonClickHandler);
+   input.focus();
+   openButtons.forEach(function(openButton) {
+      openButton.removeEventListener('click', openButtonClickHandler);
+   });
    body.style.overflowY = 'hidden';
 }
 
-const callPopupOpenHandler = function () {
-   openCallPopup();
+const openButtonClickHandler = function () {
+   openModal();
 }
 
-const closeCallPopup = function () {
-   callWrapper.classList.remove('modal--active');
-   callOverlay.classList.remove('overlay--modal-active');
-   callOpenButtonMenu.addEventListener('click', callPopupOpenHandler);
-   callOpenButtonHeader.addEventListener('click', callPopupOpenHandler);
-   document.removeEventListener('keydown', escapeKeyDownCallHandler);
-   callOverlay.removeEventListener('click', overlayClickCallHandler);
-   callCloseButton.removeEventListener('click', callCloseButtonHandler);
+const closeModal = function () {
+   modal.classList.remove('modal--active');
+   overlay.classList.remove('overlay--modal-active');
+   openButtons.forEach(function(openButton) {
+      openButton.addEventListener('click', openButtonClickHandler);
+   });
+   document.removeEventListener('keydown', escapeKeyDownHandler);
+   overlay.removeEventListener('click', overlayClickHandler);
+   closeButton.removeEventListener('click', closeButtonClickHandler);
    body.style.overflowY = 'auto';
 }
 
-const escapeKeyDownCallHandler = function (e) {
+const escapeKeyDownHandler = function (e) {
    if (e.keyCode == ESC_KEYCODE) {
-      closeCallPopup();
+      closeModal();
    }
 }
 
-const overlayClickCallHandler = function (e) {
-   if (e.target == callOverlay) {
-      closeCallPopup();
+const overlayClickHandler = function (e) {
+   if (e.target == overlay) {
+      closeModal();
    }
 }
 
-const callCloseButtonHandler = function () {
-   closeCallPopup();
+const closeButtonClickHandler = function () {
+   closeModal();
 }
 
-callOpenButtonMenu.addEventListener('click', callPopupOpenHandler);
-callOpenButtonHeader.addEventListener('click', callPopupOpenHandler);
+openButtons.forEach(function(openButton) {
+   openButton.addEventListener('click', openButtonClickHandler);
+});

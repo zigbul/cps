@@ -1,54 +1,56 @@
-const feedBackOpenButtonMenu = document.querySelector('#message-btn');
-const feedBackOpenButtonHeader = document.querySelector('#msg-btn');
-const feedBack = document.querySelector('.modal--feedback');
-const feedBackCloseButton = feedBack.querySelector('.modal__btn');
-const feedBackInput = feedBack.querySelector('input');
-const feedBackOverlay = document.querySelector('.overlay--modal');
+const openButtons = document.querySelectorAll('.message-btn');
+const modal = document.querySelector('.modal--feedback');
+const closeButton = modal.querySelector('.modal__btn');
+const input = modal.querySelector('input');
+const overlay = document.querySelector('.overlay--modal');
 const ESC_KEYCODE = 27;
 const body = document.querySelector('body');
 
-const openFeedBackPopup = function () {
-   feedBack.classList.add('modal--active');
-   feedBackOverlay.classList.add('overlay--modal-active');
-   document.addEventListener('keydown', escapeKeyDownFeedBackHandler);
-   feedBackOverlay.addEventListener('click', overlayClickFeedBackHandler);
-   feedBackCloseButton.addEventListener('click', feedBackCloseButtonHandler);
-   feedBackInput.focus();
-   feedBackOpenButtonMenu.removeEventListener('click', feedBackPopupOpenHandler);
-   feedBackOpenButtonHeader.removeEventListener('click', feedBackPopupOpenHandler);
+const openModal = function () {
+   modal.classList.add('modal--active');
+   overlay.classList.add('overlay--modal-active');
+   document.addEventListener('keydown', escapeKeyDownHandler);
+   overlay.addEventListener('click', overlayClickHandler);
+   closeButton.addEventListener('click', closeButtonClickHandler);
+   input.focus();
+   openButtons.forEach(function(openButton) {
+      openButton.removeEventListener('click', openButtonClickHandler);
+   });
    body.style.overflowY = 'hidden';
 }
 
-const feedBackPopupOpenHandler = function () {
-   openFeedBackPopup();
+const openButtonClickHandler = function () {
+   openModal();
 }
 
-const closeFeedBackPopup = function () {
-   feedBack.classList.remove('modal--active');
-   feedBackOverlay.classList.remove('overlay--modal-active');
-   feedBackOpenButtonMenu.addEventListener('click', feedBackPopupOpenHandler);
-   feedBackOpenButtonHeader.addEventListener('click', feedBackPopupOpenHandler);
-   document.removeEventListener('keydown', escapeKeyDownFeedBackHandler);
-   feedBackOverlay.removeEventListener('click', overlayClickFeedBackHandler);
-   feedBackCloseButton.removeEventListener('click', feedBackCloseButtonHandler);
+const closeModal = function () {
+   modal.classList.remove('modal--active');
+   overlay.classList.remove('overlay--modal-active');
+   openButtons.forEach(function(openButton) {
+      openButton.addEventListener('click', openButtonClickHandler);
+   });
+   document.removeEventListener('keydown', escapeKeyDownHandler);
+   overlay.removeEventListener('click', overlayClickHandler);
+   closeButton.removeEventListener('click', closeButtonClickHandler);
    body.style.overflowY = 'auto';
 }
 
-const escapeKeyDownFeedBackHandler = function (e) {
+const escapeKeyDownHandler = function (e) {
    if (e.keyCode == ESC_KEYCODE) {
-      closeFeedBackPopup();
+      closeModal();
    }
 }
 
-const overlayClickFeedBackHandler = function (e) {
-   if (e.target == feedBackOverlay) {
-      closeFeedBackPopup();
+const overlayClickHandler = function (e) {
+   if (e.target == overlay) {
+      closeModal();
    }
 }
 
-const feedBackCloseButtonHandler = function () {
-   closeFeedBackPopup();
+const closeButtonClickHandler = function () {
+   closeModal();
 }
 
-feedBackOpenButtonMenu.addEventListener('click', feedBackPopupOpenHandler);
-feedBackOpenButtonHeader.addEventListener('click', feedBackPopupOpenHandler);
+openButtons.forEach(function(openButton) {
+   openButton.addEventListener('click', openButtonClickHandler);
+});
